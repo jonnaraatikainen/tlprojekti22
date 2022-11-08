@@ -3,6 +3,11 @@
 
 #include "messaging.h"
 
+const int xPin   = A1;   // x-kanavan mittaus
+const int yPin   = A2;   // y-kanava
+const int zPin   = A3;   // z-kanava
+
+
 struct Measurement
 {
   int x;
@@ -16,6 +21,7 @@ public:
   Accelerator();
   ~Accelerator();
   void makeMeasurement();
+  void printMeasurement();
   Measurement getMeasurement();
 
 private:

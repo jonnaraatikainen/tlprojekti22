@@ -14,9 +14,19 @@ Accelerator::~Accelerator()
 
 void Accelerator::makeMeasurement()
 {
+  m.x = analogRead(xPin);
+  m.y = analogRead(yPin);
+  m.z = analogRead(zPin);
 
 }
+void Accelerator::printMeasurement()
+{
+      Serial.println(m.x);
+      Serial.println(m.y);
+      Serial.println(m.z);
+}
+
 Measurement Accelerator::getMeasurement()
 {
- 
+  return m;
 }
