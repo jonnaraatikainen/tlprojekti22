@@ -18,6 +18,10 @@ void Accelerator::makeMeasurement()
   m.y = analogRead(yPin);
   m.z = analogRead(zPin);
 
+  //m.x = 258;
+  //m.y = 259;
+  //m.z = 260;
+
 }
 void Accelerator::printMeasurement()
 {

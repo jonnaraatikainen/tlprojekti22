@@ -31,6 +31,15 @@ void loop()
 {
   Accelerator Aobject;
   Messaging Mobject;
+  uint8_t flags = 0;
+  Serial.println("Give rotation");
+  while (flags == 0)
+  {
+  if (Serial.available() > 0)
+    {
+      flags = Serial.parseInt();
+    }
+  }
   Serial.println("Give number how many measurements");
   int NumberOfMeasurements = 0;
   while (NumberOfMeasurements == 0)
@@ -49,7 +58,7 @@ void loop()
     Aobject.printMeasurement();
    
     uint8_t id = M;
-    uint8_t flags = 0xff;
+    
     Mobject.createMessage(m);
     if (Mobject.sendMessage(id, flags))
     {
