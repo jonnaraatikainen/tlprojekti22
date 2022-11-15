@@ -7,6 +7,12 @@ float ay = 0.0;
 float az = 0.0;
 int SisaanTunniste = 0;
 int indeksi = 0;
+//1=oikeinpäin
+//2=äx ylöspäin
+//3=yy ylöspäin
+//4=zeta alaspäin
+
+
 
 void setup()
 {
