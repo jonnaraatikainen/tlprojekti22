@@ -19,8 +19,19 @@ Messaging::~Messaging()
 }
 void Messaging::createMessage(Measurement m)
 {
+  data[0] = m.x>>8;
+  data[1] = m.x&0x00ff;
+  data[2] = m.y>>8;
+  data[3] = m.y&0x00ff;
+  data[4] = m.z>>8;
+  data[5] = m.z&0x00ff;
 
-
+  Serial.println(data[0]);
+  Serial.println(data[1]);
+  Serial.println(data[2]);
+  Serial.println(data[3]);
+  Serial.println(data[4]);
+  Serial.println(data[5]);
 }
 bool Messaging::sendMessage(uint8_t id, uint8_t flags)
 {
