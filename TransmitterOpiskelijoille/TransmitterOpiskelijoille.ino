@@ -7,6 +7,12 @@ float ay = 0.0;
 float az = 0.0;
 int SisaanTunniste = 0;
 int indeksi = 0;
+//1=oikeinpäin
+//2=yy alaspäin
+//3=äx alaspäin
+//4=zeta alaspäin
+
+
 
 void setup()
 {
@@ -31,6 +37,15 @@ void loop()
 {
   Accelerator Aobject;
   Messaging Mobject;
+  uint8_t flags = 0;
+  Serial.println("Give rotation");
+  while (flags == 0)
+  {
+  if (Serial.available() > 0)
+    {
+      flags = Serial.parseInt();
+    }
+  }
   Serial.println("Give number how many measurements");
   int NumberOfMeasurements = 0;
   while (NumberOfMeasurements == 0)
@@ -49,7 +64,7 @@ void loop()
     Aobject.printMeasurement();
    
     uint8_t id = M;
-    uint8_t flags = 0xff;
+    
     Mobject.createMessage(m);
     if (Mobject.sendMessage(id, flags))
     {
