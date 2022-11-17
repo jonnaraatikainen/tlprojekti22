@@ -8,8 +8,8 @@ float az = 0.0;
 int SisaanTunniste = 0;
 int indeksi = 0;
 //1=oikeinpäin
-//2=äx ylöspäin
-//3=yy ylöspäin
+//2=yy alaspäin
+//3=äx alaspäin
 //4=zeta alaspäin
 
 
