@@ -15,7 +15,7 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.scatter(datax, datay, dataz)
-plt.show()
+#plt.show()
 
 
 numberOfRows = len(data)/3
@@ -30,8 +30,9 @@ print(random)
 centerPointCumulativeSum = np.zeros((4,3))
 
 
-Counts = np.zeros((1,4))
-Distances = np.zeros((1,4))
+Counts = np.zeros(4)
+Distances = np.zeros(4)
+dist1 = np.zeros(4)
 
 '''
 a = np.array((2,4,6))
@@ -44,18 +45,28 @@ etaisyys = np.linalg.norm(a-b)
 print(etaisyys)
 '''
 datamatrix = np.zeros((numberOfRows,3))
-datamatrix[:,0] = datax
-datamatrix[:,1] = datay
-datamatrix[:,2] = dataz
+datamatrix[:,0] = data[0::3]
+datamatrix[:,1] = data[1::3]
+datamatrix[:,2] = data[2::3]
 
 
 for i in range(numberOfRows):
     for j in range(4):
-        dist = np.sqrt(np.power((random[j,0]- datamatrix[j,0]),2) + 
-                       np.power((random[j,1]- datamatrix[j,1]),2) + 
-                       np.power((random[j,2]- datamatrix[j,2]),2))
-        print(dist)
-        
+        dist = np.abs(np.sqrt(np.power((random[j,0]- datamatrix[i,0]),2) + 
+                      np.power((random[j,1]- datamatrix[i,1]),2) + 
+                      np.power((random[j,2]- datamatrix[i,2]),2)))
+        dist1[j] = dist
+
+    print(dist)
+    pienin = np.argmin(dist1)
+    print("pienin etäisyys", pienin)
+    Counts[pienin] += 1
+    centerPointCumulativeSum[pienin, 0:3] += datamatrix[i, 0:3]
+
+print(Counts)
+print(centerPointCumulativeSum)
+
+
 
 
 
