@@ -1,5 +1,6 @@
 #include "messaging.h"
 #include "accelerator.h"
+#include "keskipisteet.h"
 const int GNDPin2 = A4;  // laitteen maa-napa
 const int VccPin2 = A0;  // Käyttöjännite
 float ax = 0.0;  // x-kanavan kiihtyvyysarvo SI-muodossa (m/s^2)
@@ -66,22 +67,7 @@ void loop()
     uint8_t id = M;
     
     Mobject.createMessage(m);
-    if (Mobject.sendMessage(id, flags))
-    {
-      Serial.println("Successfull transmission");
-    }
-    else
-    {
-      Serial.println("Transmission fails");
-    }
-    if (Mobject.receiveACK())
-    {
-      Serial.println("Receiver got message, going to next measurement");
-    }
-    else
-    {
-      Serial.println("Reciver did not get the message. Need to resend it");
-      //M--;  // Let's just revind for loop
+   
     }
   } // end of for
 }   // end of loop
