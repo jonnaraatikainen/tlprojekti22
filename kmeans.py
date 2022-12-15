@@ -58,7 +58,7 @@ def kMeans(random, datamatrix, numberOfRows, position):
                 else:
                     avgDistance[x] = (centerPointCumulativeSum[x,:]/Counts[x])
                     avgDistance = np.around(avgDistance, 2)
-
+        print(flag, "flagiii")
         random = avgDistance
         print(avgDistance,"\n")
 
@@ -76,18 +76,16 @@ def kMeans(random, datamatrix, numberOfRows, position):
     #plt.show()
 
     headerData = avgDistance
-    with open('C:/tlprojekti22/tlprojekti22/TransmitterOpiskelijoille/keskipisteet.h', 'w') as f:
+    with open('TransmitterOpiskelijoille\keskipisteet.h', 'w') as f:
         line = "float w[3][6] = {"
-        for i in range(3):
+        for i in range(4):
             line = line + "{"
             outputThis = np.array2string(headerData[i,:],precision=2,separator=',')
             line = line + outputThis[1:len(outputThis)-1]
-            line = line + "},"
-        outputThis = np.array2string(headerData[3,:],precision=3,separator=',')
-        line = line + "{"
-        line = line + outputThis[1:len(outputThis)-1]
+            line = line + ","
+            line = line + str(flag[i])
+            line = line + "}"
         line = line + "}"
-        line = line + "};"
         f.write(line)
         f.write('\n')
     f.close()
