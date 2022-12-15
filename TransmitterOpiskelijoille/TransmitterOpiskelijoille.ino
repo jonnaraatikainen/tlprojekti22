@@ -37,7 +37,6 @@ void setup()
 void loop()
 {
   Accelerator Aobject;
-  Messaging Mobject;
   uint8_t flags = 0;
   Serial.println("Give rotation");
   while (flags == 0)
@@ -66,8 +65,7 @@ void loop()
    
     uint8_t id = M;
     
-    Mobject.createMessage(m);
-   
+
     }
   } // end of for
 }   // end of loop
