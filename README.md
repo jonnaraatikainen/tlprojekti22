@@ -12,3 +12,8 @@ koneoppimistarkoitukseen.
 
 
 ![image](https://user-images.githubusercontent.com/93710233/204480199-241a250d-7308-4832-860d-f6f5545a9c47.png)
+
+![image](https://user-images.githubusercontent.com/93710233/207848074-9a74c164-b075-4749-b62c-6c91151d2767.png)
+
+![image](https://user-images.githubusercontent.com/93710233/207848196-ae599c12-01bf-4d7e-866b-60cb548fefb6.png)
+
